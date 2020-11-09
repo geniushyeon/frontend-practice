@@ -38,7 +38,6 @@ URL(Uniform Resource Locator)
     - 여는 태그: <태그>
     - 닫는 태그: </태그>
  - 계층 구조로 되어 있다(트리 구조)
-    - 포함 관계 명확하게 할 것
  - 태그는 속성을 가지고 있음
    - <태그 속성=값 속성=값></태그>
 
@@ -96,3 +95,49 @@ horizontal rule, 수평 줄
 ## 2.2. em, i - 이탤릭
 
 ## 2.3. q - 인라인 인용구(quote)
+
+## 2.4. mark - 형광펜
+
+## 2.5. span - 아무것도 안 함
+- 스타일링 할 때 유용하게 쓰임
+
+## 2.6. ruby - 동아시아 문자
+
+## 2.7. rt
+
+# 3. 텍스트로 목록 만들기
+- 순서 없는 목록(unordered list)
+- 순서 있는 목록(ordered list)
+
+## 3.1. 순서 없는 목록
+ul, li
+
+## 3.2. 순서 있는 목록
+ol
+
+## 3.3. 설명 있는 목록
+dl(description list) dt - 제목 dd - 설명
+
+# 4. 표
+- table
+- tr(table row)
+- td(tag define)
+- th(tag header)
+
+# 5. 이미지
+img 태그
+
+src - 이미지 url
+파일 경로 alt
+대체 문구(alternative) width - 너비 height - 높이
+
+# 6. a 태그
+
+속성
+- href: 주소
+- target: 링크가 표시될 방법
+- download: 링크의 리소스를 다운로드
+
+target 속성
+- _blank
+- self: 기본 값
