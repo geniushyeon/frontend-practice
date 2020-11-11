@@ -167,3 +167,18 @@ type="text/css>
 - :link
 - :visited
 - :hover
+- :active
+- :focus
+
+## 10.2. 태그의 상태에 따른 가상 클래스
+- :enabled - 활성화된 상태
+- :disabled - 비활성화
+- :checked - 체크된 상태
+
+## 10.3. 구조 가상 클래스
+
+- :root - 문서 전체
+- :not - 부정
+- nth-child(n)
+  - 2n - 1, odd
+  - 2n + 1, even

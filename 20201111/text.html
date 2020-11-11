@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>20201111 실습</title>
+        <style>
+            div {
+                width: 100px;
+                height: 100px;
+                background: linear-gradient(45deg, #333333 33%, #666666 66%, #ffffff 100%);
+                padding: 20px;
+                overflow: hidden;
+                white-space: nowrap; 
+                text-overflow: ellipsis; /*글 컨텐츠 영역 넘어가면 ...로*/
+                overflow: hidden; 
+
+            }
+
+            /* div {
+                이미지로 background 채우기
+                width: 100%;
+                height: auto;
+                background-image: url('https://static.toiimg.com/photo/msid-74508525/74508525.jpg?resizemode=4&width=400');
+                background-repeat: no-repeat;
+                background-size: auto;
+            } */
+
+            ul{
+                list-style: none;
+            }
+            li {
+                padding-left: 1rem;
+                text-indent: -0.7rem;
+            }
+            li::before{
+                content: "🥰";
+            }
+
+        </style>
+    </head>
+    <body>
+        <input type="color"/>
+        <div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut molestie efficitur condimentum. Duis sit amet efficitur est. Cras sit amet congue mi. Nulla nisl lorem, tristique ut felis ut, dictum placerat nibh. Proin rutrum, quam id sagittis viverra, tortor quam consequat quam, ac consectetur orci odio at arcu. Donec iaculis aliquet faucibus. Integer at imperdiet metus, vel pretium mauris. Cras neque metus, fermentum at elementum nec, ultrices ac turpis. Nunc ligula turpis, tempor non nisi tristique, volutpat congue tortor. Proin tincidunt orci eget commodo ultricies. Curabitur faucibus, felis eu auctor consequat, felis mauris venenatis leo, in mattis nibh ligula ac neque. Duis hendrerit mi lobortis sem viverra, non varius diam ultricies. Morbi ante nunc, mollis id hendrerit eu, suscipit in dolor.       
+        </div>
+
+        <ul>
+            <li>어쩌구저쩌구</li>
+            <li>안녕하세요</li>
+            <li>지니어스입니다</li>
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>layout 실습 3</title>
+        <style>
+            .box {
+                width: 300px;
+                height: 300px;
+                margin: 10px;
+                padding: 20px;
+                border: 3px solid red;
+            }
+
+            .content-box{
+                background-color: darkblue;
+                box-sizing: content-box;
+            }
+
+            .border-box {
+                background-color: darkolivegreen;
+                box-sizing: border-box;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box content-box"></div>
+        <div class="box border-box"></div>
+
+    </body>
+</html>

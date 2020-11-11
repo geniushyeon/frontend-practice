@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>레이아웃 실습</title>
+        <style>
+            div {
+                border: 1px solid grey; 
+                padding: 20px;
+                margin-bottom: 20px;
+                box-sizing: border-box;
+            }
+
+            .article {
+                width: 68%;
+                float: left;
+            }
+            .sidebar {
+                width: 30%;
+                float: right;
+            }
+            .footer {
+                clear: both;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="header">
+               <h1>이곳은 헤더</h1>
+            </div>
+            <div class="article">
+                <h1>본문</h1>
+                <p>고양이 최고 고양이가 세상을 구한다</p>
+                <p>강아지 귀여워 하지만 고양이가 세상을 구한다</p>
+
+            </div>
+            <div class="sidebar">
+                <h1>사이드바</h1>
+                <ul>
+                    <li>안녕하세요</li>
+                    <li>점심시간입니다</li>
+                </ul>
+            </div>
+            <div class="footer">
+                <h1>푸터</h1>
+                <p>발바닥입니다</p>
+            </div>
+        </div>
+    </body>
+</html>

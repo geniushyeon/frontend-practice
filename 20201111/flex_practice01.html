@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>flex</title>
+        <style>
+            body {
+                padding: 0;
+                margin: 0;
+            }
+            .flex-container {
+                display: flex;
+                flex-direction: column-reverse;
+                flex-wrap: wrap-reverse;
+                width: 100%;
+                height: 100vh;
+                background-color: #127cc1;
+        
+            }
+            .flex-item {
+                width: 100px;
+                height: 100px;
+                box-sizing: border-box;
+                border: 1px solid black;
+                align-content: center;
+                
+            }
+            .item1{
+                background-color: #D0CFEC;
+                flex-grow: 1;
+                flex-shrink: 3;
+                flex-basis: 1;
+                order: 3;
+            }
+            .item2 {
+                background-color: #6A8E7F;
+                flex-grow: 3;
+                flex-shrink: 3;
+
+            }
+            .item3{
+                background-color: wheat;
+                flex-grow: 1;
+                flex-shrink: 1;
+            }
+
+            .item4 {
+                background-image: url(https://i.pinimg.com/originals/26/e2/d2/26e2d216313eeac663a930651ce8943d.jpg);
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-container"> <!-- flex container -->
+            <!-- flex item -->
+            <div class="flex-item item1">오후2시입니다</div>
+            <div class="flex-item item2">졸려</div>
+            <div class="flex-item item3">고양이 귀여워</div>
+            <div class="flex-item item4">너무 귀여워</div>
+
+
+        </div>
+    </body>
+</html>

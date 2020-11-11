@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>position 속성에 대하여</title>
+        <style>
+            body {
+                padding: 0;
+                margin: 0;
+            }
+            .container {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                background-color: grey;
+                overflow: hidden;/*자신을 넘어간 자식은 숨김*/
+
+            }
+
+            .box {
+                top: 50px;
+                left: 50px;
+                width: 100px;
+                height: 100px;
+            }
+
+            .box1 {
+                position: relative;
+                background-color: red;
+            }
+
+            .box2 {
+                position: static;
+                top: 50px;
+                left: 250px;
+                /*static인 경우 의미 X*/
+                background-color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="box box2"></div>
+            <div class="box box1"></div>
+            <div class="box box1"></div>
+
+
+        </div>
+    </body>
+</html>
