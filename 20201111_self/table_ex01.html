@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>표 만들기 연습</title>
+    </head>
+    <body>
+        <table border="1">
+            <!--1번째 줄-->
+            <tr>
+                <th>속성 이름 셀</th>
+                <td>1행 2열 셀</td>
+                <td>1행 3열 셀</td>
+            </tr>
+            <!--2번째 줄-->
+            <tr>
+                <th>속성 이름 셀</th>
+                <td>2행 2열 셀</td>
+                <td>2행 3열 셀</td>
+            </tr>
+            <!--3번째 줄-->
+            <tr>
+                <th>뭐야</th>
+                <td colspan="2">행으로 합치기</td>
+                <td>3행 4열 셀</td>
+            </tr>
+            <!--4번째 줄-->
+            <tr>
+                <th>4행</th>
+                <td rowspan="2">합쳐짐</td>
+                <td>4행 3열 셀</td>
+            </tr>
+            <!--5번째 줄-->
+            <tr>
+                <th>5행</th>
+                <td>5행 3열 셀</td>
+            </tr>
+        </table>
+        <hr></hr>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>empno</th>
+                    <th>ename</th>
+                    <th>sal</th>
+                    <th>comm</th>
+                    <th>deptno</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>SMITH</td>
+                    <td>500</td>
+                    <td>null</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>ANDREW</td>
+                    <td>1500</td>
+                    <td>2000</td>
+                    <td>10</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>고양이</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                </tr>
+            </tfoot>
+        </table>
+    </body>
+</html>
