@@ -9,8 +9,8 @@ obj['alpha'] = 'a'
 obj['beta'] = 'b'
 console.log(obj);
 
-//javascript에서 값 비교 : ===
-
+// javascript에서 값 비교 : ===
+// 일치 비교 연산자
 const obj1 = {
     abc: 'abc'
 }

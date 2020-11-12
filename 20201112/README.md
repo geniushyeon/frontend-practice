@@ -10,6 +10,8 @@
 Node
 - 서버 사이드에서 자바스크립트를 사용하기 위해 V8 엔진을 사용하여 만듦
 
+REPL(REad-Evaluation Print Loop)
+
 # 2. 용어 정리
 
 - DOM: Document Object Model
@@ -37,6 +39,11 @@ Node
 - -Infinity(ex. -1/0)
 - NaN (Not a Number): 산술 연산이 불가능하다
 
+```javascript
+1/0 //inf
+-1/0 //-inf
+1/'a' //NaN(Not a Number)
+```
 ## 3.2. 문자열
 
 - 작은 따옴표('')
@@ -46,7 +53,9 @@ Node
   
 ## 3.2.1. Template Literal (`백틱으로 선언`)
 
-ES6+
+ES6+부터 지원.
+${} 내부에 변수 뿐만 아니라 표현식을 넣을 수 있음.
+- 표현식: 평가 결과가 값
 
 ```javascript
  const n = 10;
@@ -62,6 +71,10 @@ true, false
 ## 3.4. symbol
 
 immutable 원시 타입. 값이 중복이 안됨. ES6+
+
+```javascript
+const sym = Symbol('값')
+```
 
 ## 3.5. undefined
 

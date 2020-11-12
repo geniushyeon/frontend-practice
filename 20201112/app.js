@@ -41,9 +41,3 @@ console.log(name);
  name=11244;
  console.log(name);
 
- //template literal
-
- const n=10;
- const message = 'test';
-
- console.log(`상수 n의 값: ${n}. 상수 message의 값: ${message}`)
