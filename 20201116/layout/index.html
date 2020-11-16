@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>layout tutorial</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+        <style>
+            *, *::before, *::after {
+                box-sizing: border-box;
+            }
+
+            html, body {
+                margin: 0;
+                font-family: 'Noto Sans JP', sans-serif;
+                line-height: 1.6;
+            }
+
+            .hero {
+                background-image: 
+                    url(https://cdn.getyourguide.com/img/location/5c04f6f20650d.jpeg/148.jpg), 
+                    radial-gradient(#ccc, #111);
+                background-blend-mode: multiply;
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                background-position: center center;
+                height: 100vh;
+                color: white;
+                padding-top: 35rem
+            }
+            h1, p, blockquote {
+                margin: 0;
+            }
+
+            .container {
+                width: 85%;
+                max-width: 65em;
+                margin: 0 auto;
+            }
+             
+            .primary-title {
+                font-size: clamp(3rem, clac(5vw + 1rm), 4.5rem)
+            }
+
+            .article-spacing {
+                margin-top: 5rem;
+                width: 40%;
+            }
+
+            .article-spacing > h1 {
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .article-spacing > p, blockquote {
+                font-size: 1.3rem;
+                text-indent: 1rem;
+                margin-bottom: 2rem;
+            }
+            .article-spacing > blockquote {
+                padding-left: 2rem;
+                border-left: 5px solid black;
+                background-color: #f5f5f5;
+            }
+
+            .article-spacing > p:hover {
+                background-color: #f5f5f5;
+                cursor: pointer;
+            }
+            .img-box {
+                margin-bottom: 1.2rem;
+                text-align: center;
+            }
+
+            .img-box > p {
+                color: #555555;
+            }
+            .img-box  > img{
+                filter: brightness(90%);
+                width: 100%;
+                display: block;
+                margin: 0 auto;
+            }
+
+            footer {
+                background-color: rgba(0,0, 0, 0);
+            }
+
+        </style>
+    </head>
+    <body>
+        <header class="hero"><!--시멘틱 태그-->
+            <div class="container">
+            <h1 class="primary-title">제목</h1>
+            <p>subtitle</p>
+            <p>Nov 16 2020 14:03</p>
+            </div>
+        </header>
+        <main>
+            <article>
+                <div class="container article-spacing">
+                    <h1>👽제목1</h1>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <blockquote>
+                        <p>인용구</p>
+                        <p>인용구2</p>
+                    </blockquote>
+                    <p>여전히 내용</p>
+                    <h1>🐱제목2</h1>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                    </p>
+                    <div class="img-box">
+                        <img src="data:image/jpeg;base64,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"/>
+                        <p>[이미지 설명]</p>
+                    </div>
+                </div>
+            </article>
+        </main>
+        <footer>
+            <div class="footer">
+                <div class="container info-container">
+                    <div class="info-container-item">
+                        <h1>제목1</h1>
+                        <p>내용1</p>
+                    </div>
+                    <div class="info-container-item">
+                        <h1>제목2</h1>
+                        <p>내용2</p>
+                    </div>
+                    <div class="info-container-item">
+                        <h1>제목3</h1>
+                        <p>내용3</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

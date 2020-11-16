@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>flex</title>
+        <style>
+            html, body {
+                margin: 0
+            }
+            .flex-container {
+                display: flex;
+                width: 100vw;
+                height: 20vh;
+                background-color: beige;
+            }
+            .flex-item {
+                flex: 1 1 0;
+            }
+            .item1 {background-color: gray;}
+            .item2 {background-color: burlywood;}
+            .item3 {background-color: cornflowerblue;}
+        </style>
+    </head>
+    <body>
+        <div class="flex-container">
+            <div class="flex-item item1">
+                <h3>제목</h3>
+                <p>어쩌구저쩌구입니다~</p>
+            </div>
+            <div class="flex-item item2">item2</div>
+            <div class="flex-item item3">item3</div>
+
+        </div>
+
+    </body>
+</html>
