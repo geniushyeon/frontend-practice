@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!-- 선생님 코드 -->
+<html>
+    <head>
+        <title>지옥의 또는</title>
+        <style>
+            html, body {
+                margin: 0;
+            }
+
+            *, *::before, *::after {
+                box-sizing: border-box;
+            }
+
+            h1, h2, h3 {
+                margin: 0;
+            }
+
+            .custom-hr1 {
+                width: 40vw;
+                background-color: beige;
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            .custom-hr1 > h1 {
+                overflow: hidden;
+                text-align: center;
+            }
+
+            .custom-hr1 > h1::before,
+            .custom-hr1 > h1::after {
+                background-color: #000;
+                content: '';
+                display: inline-block;
+                height: 1px;
+                position: relative;
+                vertical-align: middle;
+                width: 50%;
+            }
+
+            .custom-hr1 > h1:before {
+                right: 0.5em;
+                margin-left: -50%;
+            }
+
+            .custom-hr1 > h1:after {
+                left: 0.5em;
+                margin-right: -50%;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="custom-hr1">
+            <h1>또는</h1>
+        </div>
+    </body>
+</html>

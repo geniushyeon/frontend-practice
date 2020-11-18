@@ -3,7 +3,7 @@
     <head>
         <title>가입하기 - Instagram</title>
         <style>
-            /*전역 설정 시작*/
+            /*전역 설정 시작!*/
             html, body {
                 margin: 0;
                 background-color: #f1f1f1;
@@ -21,7 +21,7 @@
                 max-width: 350px;
                 background-color: white;
                 margin: 3rem auto;
-                padding: 0 45px 100px 45px;
+                padding: 0 45px 70px 45px;
                 text-align: center;
                 border: 1px solid #aaaaaa;
             }
@@ -69,7 +69,7 @@
              .button {
                 width: 100%;
                 padding: 9px 0px 9px 9px;
-                margin-bottom: 1rem;
+                margin-bottom: 0.5rem;
                 border: none;
                 background-color: #0095F6;
                 color: white;
@@ -87,32 +87,43 @@
                  
              }
 
-             .divider {
-                 width: 250px;
+             .custom-hr1 {
+                 width: 100%;
                  margin: 0 auto;
                  text-align: center;
-                 position: relative;
-                 margin-bottom: 1rem;
-             }
-
-             .divider-content::before {
-                 content: '';
-                 border-bottom: 1px solid #aaaaaa;
-                 position: absolute;
-                 width: 100%;
-                 height: 50%;
-                 top: 0;
-                 left: 0;
-                 
-             }
-
-             .divider-content::after {
-                 content: '또는';
-                 font-size: 0.8rem;
+                 font-size: 0.5rem;
                  color: #aaaaaa;
-                 line-height: 1.5rem;
+                 margin-bottom: 0.5rem;
              }
-          
+
+             .custom-hr1 > p {
+                 margin: 0;
+                 overflow: hidden;
+                 text-align: center;
+             }
+
+             .custom-hr1 > p::before,
+             .custom-hr1 > p::after {
+                 background-color: #aaaaaa;
+                 content: '';
+                 display: inline-block;
+                 height: 1px;
+                 position: relative;
+                 vertical-align: middle;
+                 width: 50%;
+             }
+
+             .custom-hr1 > p:before {
+                 right: 0.5em;
+                 margin-left: -50%;
+
+             }
+
+             .custom-hr1 > p:after {
+                 left: 0.5em;
+                 margin-right: -50%;
+             }
+           
 
         </style>
     </head>
@@ -128,8 +139,8 @@
             <main>
                 <button type="button" class="button facebook" onClick="location.href='https://ko-kr.facebook.com/'">
                     <b>Facebook으로 로그인</b></button>
-                    <div class="divider">
-                        <div class="divider-content"></div>
+                    <div class="custom-hr1">
+                        <p>또는</p>
                     </div>
                 
                 <form class="form-box" name="sign-up-form">
