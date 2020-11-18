@@ -10,7 +10,7 @@
 Node
 - 서버 사이드에서 자바스크립트를 사용하기 위해 V8 엔진을 사용하여 만듦
 
-REPL(REad-Evaluation Print Loop)
+REPL(Read-Evaluation Print Loop)
 
 # 2. 용어 정리
 
