@@ -1,17 +1,101 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>네이버 : 회원가입</title>
+        <title>가입하기 - Instagram</title>
+        <style>
+            /*전역 설정 시작*/
+            html, body {
+                margin: 0;
+                background-color: #f1f1f1;
+            }
+            *, *::before, *::after {
+                box-sizing: border-box;
+            }
+
+            p {
+                margin: 0;
+            }
+            /*전역 설정 끝!*/
+
+            .form-container {
+                max-width: 400px;
+                height: 80vh;
+                background-color: white;
+                margin: 100px auto;
+                padding: 0 45px 100px 45px;
+                text-align: center;
+                border: 1px solid #888888;
+            }
+
+            .logo-box > img {
+                margin-top: 1em;
+                width: 70%
+            }
+
+            .sign-up-header {
+                text-align: center;
+            }
+
+            .sign-up-header > h2{
+                font-size: 1.1rem;
+                color: #8e8e8e;
+             }
+
+             .form-box-field-input {
+                width: 100%;
+                background-color: #fafafa;
+                outline: none;
+                padding: 9px 0px 7px 8px;
+                font-size: 0.8rem;
+                border-radius: 3px;
+                border: 1px solid #888888;
+
+             }
+
+             .form-box-field {
+                margin-bottom: 0.5em;
+             }
+
+             .button {
+                width: 100%;
+                padding: 9px 0px 7px 8px;
+                margin-bottom: 1rem;
+                border: none;
+                background-color: #0095F6;
+                color: white;
+                border-radius: 3px;
+             }
+
+
+        </style>
     </head>
+    
     <body>
         <div class="form-container">
             <header class="sign-up-header">
                 <div class="logo-box">
-
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1600px-Instagram_logo.svg.png"/>
                 </div>
+                <h2>친구들의 사진과 동영상을 보려면 가입하세요.</h2>
             </header>
             <main>
-
+                <button class="button" type="button"><b>Facebook으로 로그인</b></button>
+                <form class="form-box" name="sign-up-form">
+                    <div class="form-box-field">
+                        <input class="form-box-field-input" type="text" placeholder="휴대폰 번호 또는 이메일 주소">
+                    </div>
+                    <div class="form-box-field">
+                        <input class="form-box-field-input" type="text" placeholder="성명">
+                    </div>
+                    <div class="form-box-field">
+                        <input class="form-box-field-input" type="text" placeholder="사용자 이름">
+                    </div>
+                    <div class="form-box-field">
+                        <input class="form-box-field-input" type="text" placeholder="비밀번호">
+                    </div>
+                </form>
+                <button class="button" type="button"><b>가입</b></button>
+                <p>가입하면 Instagram의 약관, 데이터 정책 및 쿠키 정책에 동의하게 됩니다.</p>
             </main>
             <footer>
 
