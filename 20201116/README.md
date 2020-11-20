@@ -151,4 +151,3 @@ addEventListener('이벤트이름', '이벤트핸들러')
 - event bubbling phase(하위->상위)
   - 이 때 등록된 핸들러들 호출됨
   - 사우이에 있는 요소들에 등록된 핸들러가 호출될 수 있으므로 의도하지 않은 동작을 막으려면 stopPropagation 호출해서 이벤트 전파 막아야함.
-
