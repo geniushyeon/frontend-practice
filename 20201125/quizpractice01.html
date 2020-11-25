@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>퀴즈 연습</title>
+        <style>
+            html, body {
+                margin: 0;
+            }
+
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: red;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="box" id="box">
+            하이
+        </div>
+        <button id="btn">눌러보세요</button>
+    <script>
+        const box = document.querySelector('#box');
+        box.style.backgroundColor = 'blue'
+        console.log(box.innerText)
+        box.innerText = 'query Selector'
+        const btn = document.querySelector('#btn')
+        console.log(btn.innerText)
+
+        const boxes = document.getElementsByClassName('box')
+        console.log(boxes) // list
+        boxes[0].style.backgroundColor = 'cornflowerblue'
+
+        const b = document.getElementsByTagName('div')
+        console.log(b) //nodelist
+        b[0].style.backgroundColor = 'crimson'
+    </script>
+    </body>
+</html>

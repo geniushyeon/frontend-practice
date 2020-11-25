@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>퀴즈 연습</title>
+        <style>
+        </style>
+    </head>
+
+    <body>
+        <input type="checkbox" name="fruit" value="사과"/>🍎<br/>
+        <input type="checkbox" name="fruit" value="오렌지"/>🍊<br/>
+        <input type="checkbox" name="fruit" value="포도"/>🍇<br/>
+        <input type="checkbox" name="fruit" value="아보카도"/>🥑<br/>
+        <button id="print">클릭해보삼</button>
+        <h2 id="list"></h2>
+        <script>
+            const p = document.getElementById('print')
+            p.addEventListener('click', () => {
+                const chks = document.getElementsByName('fruit')
+                const length = chks.length;
+                const list = document.getElementById('list');
+                let s = '';
+                for (let i=0; i<length; i++) {
+                    if (chks[i].checked) {
+                        s += chks[i].value
+                        s += ', '
+                    }
+                }
+                list.innerText = s
+            })
+        </script>
+    </body>
+</html>
