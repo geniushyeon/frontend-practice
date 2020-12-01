@@ -10,12 +10,15 @@
 - javascript
 ```javascript
 var id = document.getElementById('abc');
+```
+- 2)javascript(function)
+```javascript
 var getId = function(id) {
     return document.getElementById(id);
 }
 var id = getId('abc');
 ```
-- jQuery  
+- 3) jQuery  
 ```jquery
 var id = $('#abc');
 ```
