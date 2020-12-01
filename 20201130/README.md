@@ -65,3 +65,44 @@ key:value => {
 ```json
 { key:[...] }
 ```
+
+```json
+$("#footer").css({
+			"height" : "100px",
+			"background-color" : "#ccc",
+			"text-align" : "center",
+			"line-height" : "100px"
+
+		});
+```
+
+## 5.1. filter
+- 선택된 요소 중 필요햔 요소만을 걸러내는 방법
+- 접두문자 ':'을 사용
+- 필터와 필터를 연결하여 사용 가능
+
+종류
+- :eq(index)
+- :even
+- :odd
+- :first
+- :last
+- :gt(index)
+- :lt(index)
+
+## 5.2. 동적 include
+```jsp
+<%
+		String inc = "filter.jsp";
+		if(request.getParameter("inc") != null) {
+			inc = request.getParameter("inc");
+			
+		}
+	
+	%>
+	<div id="index">
+		<header id="header">This is a header</header>
+		<section id="contents">
+			<article class="content">
+			<jsp:include page ="<%=inc %>"/> <!-- 동적 include -->
+```
