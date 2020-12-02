@@ -3,9 +3,9 @@
 ## 1.1. var
 java의 경우
 ```java
-String name = "지니어스현" // 전역 변수
+String name = "지니어스현"; // 전역 변수
 
-public void 어쩌구 {
+public void 어쩌구() {
     String name2 = "지니어스현" // 지역 변수
 }
 ```
@@ -81,3 +81,12 @@ btn2.onclick = function() {
 		
 	}
 ```
+
+# 5. manipulation
+지정된 요소의 내, 외부 환경에 대한 요소를 추가 및 제거
+- append
+- prepend
+- before
+- after
+- remove
+- empty
