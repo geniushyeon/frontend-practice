@@ -47,7 +47,7 @@ form.onsubmit = function() { // form 안에 submit 버튼이 클릭됐을 때
 	var param = "?number=" + form.number.value;
 		
 	var request = new XMLHttpRequest();
-	request.open("GET", "./ajax/OddEvenCheck.jsp" + param); //GET 타입으로 OddEvenCheck.jsp파일에 요청 정보를 생성
+	request.open("GET", "./ajax/OddEvenCheck.jsp" + param); //GET 타입으로 OddEvenCheck.jsp 파일에 요청 정보를 생성
 
 	request.onreadystatechange = function() {
 		if (request.status == 200 && request.readyState == 4) {
