@@ -84,3 +84,241 @@ form.onsubmit = function() { // form 안에 submit 버튼이 클릭됐을 때
     return false;
 }
 ```
+
+# 4. 응용 - Ajax+JDBC
+hr.employees 테이블을 JDBC로 연결하여 사원 정보를 검색하는 프로그램을 짜 보자
+## 4.1. Application.java
+JDBC
+```java
+package shop.jamielee;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class Application {
+	Connection conn;
+
+	public Application() {
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+
+			conn = DriverManager.getConnection(
+					"jdbc:oracle:thin:@localhost:1521:XE", 
+					"system", "oracle"
+					);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public Connection getConn() {
+		return conn;
+	}
+}
+
+
+```
+## 4.2. EmpVo.java
+VO(Value Object)
+- Read Only 속성. 한 건의 데이터를 저장한다.
+```java
+package shop.jamielee;
+// Value Object: Read Only 속성
+// 1건의 자료를 저장 
+public class EmpVo {
+	private int employee_id;
+	private String first_name;
+	private String email;
+	private String phone_number;
+	private double salary;
+	
+	public int getEmployee_id() {
+		return employee_id;
+	}
+	public void setEmployee_id(int employee_id) {
+		this.employee_id = employee_id;
+	}
+	public String getFirst_name() {
+		return first_name;
+	}
+	public void setFirst_name(String first_name) {
+		this.first_name = first_name;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPhone_number() {
+		return phone_number;
+	}
+	public void setPhone_number(String phone_number) {
+		this.phone_number = phone_number;
+	}
+	public double getSalary() {
+		return salary;
+	}
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}	
+}
+```
+다른 프로젝트 진행 시 꼭 `camelCase`로 작성하기. DB 기준으로 한다고 스네이크 표기법으로 해버림..
+## 4.3. EmpDao.java
+DAO(Data Access Object)
+- 데이터에 접근하는 것을 목적으로 하는 객체.
+```java
+package shop.jamielee;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+// Data Access Object: 데이터에 접근하는 것을 목적으로 하는 객체 
+
+public class EmpDao {
+	public Connection conn;
+	public PreparedStatement pstmt;
+	public ResultSet rs;
+	
+	public EmpDao() {
+		conn = new Application().getConn();
+		
+	}
+	
+	@SuppressWarnings("finally")
+	public List<EmpVo> search(String findString) {
+		List<EmpVo> list = new ArrayList<EmpVo>();
+		
+		try {
+			String sql = "SELECT * FROM hr.employees where first_name like ? or email like ? or phone_number like ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + findString + "%");
+			pstmt.setString(2, "%" + findString + "%");
+			pstmt.setString(3, "%" + findString + "%");
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				EmpVo empvo = new EmpVo();
+				empvo.setEmployee_id(rs.getInt("employee_id"));
+				empvo.setFirst_name(rs.getString("first_name"));
+				empvo.setEmail(rs.getString("email"));
+				empvo.setPhone_number(rs.getString("phone_number"));
+				empvo.setSalary(rs.getDouble("salary"));
+				
+				list.add(empvo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch(SQLException e){
+				e.printStackTrace();
+			}
+			return list;
+		}
+		
+	}
+}
+
+```
+## 4.4. EmpSearch.jsp
+사용자의 요청 정보를 DAO에 전달한 후 그 결과를 다시 사용자에게 반환한다.
+```jsp
+<%@page import="shop.jamielee.EmpDao"%>
+<%@page import="shop.jamielee.EmpVo"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%
+// 사용자의 요청 정보를 DAO에 전달한 후 그 결과를 다시 사용자에게 반환 
+
+	// request: 사용자의 요청 정보가 들어 있는 객체 
+	String findString = request.getParameter("findString"); 
+
+	EmpDao empDao = new EmpDao();
+	List<EmpVo> list = empDao.search(findString);
+	StringBuilder sb = new StringBuilder();
+	
+	String fmt = "<div class='emp'>"
+				+ "<div>사번: %d</div>"
+				+ "<div>성명: %s</div>"
+				+ "<div>이메일: %s</div>"
+				+ "<div>연락처: %s</div>"
+				+ "<div>급여: %10.1f</div>"
+				+ "</div>";
+				
+	for(EmpVo ev : list) {
+		String str = String.format(fmt,
+				ev.getEmployee_id(),
+				ev.getFirst_name(),
+				ev.getEmail(), 
+				ev.getPhone_number(),
+				ev.getSalary());
+		
+		sb.append(str); // 선택된 요소(sb)의 마지막에 새로운 요소나 컨텐츠 추가 
+	}
+	
+	out.print(sb.toString());
+%>
+```
+
+## 4.5. EmpSearchForm.jsp
+UI
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>emp_search_form</title>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<style>
+#items > div {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	border: 1px solid #ccc;
+	padding: 5px;
+	box-shadow: 2px 2px 3px #999;
+}
+</style>
+</head>
+<body>
+<div id="emp_search_form">
+	<form name="form" method="POST" id="form">
+		<label>검색어를 입력하세요.</label>
+		<input type="text" name="findString"/>
+		<input type="button" value="검색" id="btnFind"/>
+	</form>
+	<hr/>
+	<div id="items"></div>
+</div>
+<script>
+$("#btnFind").on("click", function(){
+	let param = $("#form").serialize(); // 직렬화
+	let request = new XMLHttpRequest();
+	request.open("GET", "./ajax/EmpSearch.jsp?" + param); // GET 타입으로 EmpSearch.jsp 파일에 요청 정보를 생성 
+	request.onreadystatechange = function() {
+		if(request.status==200 && request.readyState == 4) {
+			$("#items").html(request.responseText);
+		}
+	}
+	
+	request.send();
+	
+})
+</script>
+</body>
+</html>
+```
