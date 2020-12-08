@@ -322,3 +322,5 @@ $("#btnFind").on("click", function(){
 </body>
 </html>
 ```
+## 4.6. 결과 화면
+![EmpSearchFormScreenshot](img/EmpSearchFormScreenshot.png)
