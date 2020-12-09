@@ -55,7 +55,7 @@ DOM Tree 구조를 기반으로 찾아가는 방식
 - .next(expr)
 - .prev(expr)
 
-# 4. 이벤트 처리
+## 3.1. 실습
 ```javascript
 // btn1, btn2에 이벤트 처리 
 var btn1 = $(".btn1")[0]; //클래스는 배열로 반환 
@@ -82,11 +82,79 @@ btn2.onclick = function() {
 	}
 ```
 
-# 5. manipulation
+# 4. manipulation
 지정된 요소의 내, 외부 환경에 대한 요소를 추가 및 제거
-- append
-- prepend
-- before
-- after
-- remove
-- empty
+- wrap()
+- append()
+- prepend()
+- before()
+- after()
+- remove()
+- empty()
+
+## 4.1. 실습
+```html
+<body>
+	<div id='main'>
+		<div id='target'>TARGET</div>
+
+		<div id='btn_zone'>
+			<input type="button" value='wrap' id='btnWrap' onclick='printlog(this)' /> 
+			<input type="button" value='append' id='btnAppend' /> 
+			<input type="button" value='prepend' id='btnPrepend' />
+		</div>
+	</div>
+	<script>
+		// 버튼 3개에 각각 click event 처리
+		// wrap(): 지정된 요소에 html이나 element를 씌운다.
+		function printlog(button) {
+			var wrap = "<label><input type='checkbox'/>확인</label>";
+			$('#main>#target').wrap(wrap);
+		}
+	</script>
+</body>
+```
+
+# 5. Filter
+- 선택된 요소 중 필요한 요소만을 걸러낸다.
+- 접두문자 `':'`을 붙여서 사용한다.
+- 필터와 필터를 연결하여 사용할 수 있다.
+
+## 5.1. 필터의 종류
+1) 기본 필터
+2) 폼 필터
+3) 자식 필터
+
+## 5.2. 실습
+```html
+<body>
+	<div id="filter">
+		<fieldset>
+			<legend>filter</legend>
+			<ul>
+				<li>선택된 요소 중 필요한 요소만을 걸러내는 방법</li>
+				<li>접두문자 ':'을 사용</li>
+				<li>필터와 필터를 연결하여 사용 가능</li>
+			</ul>
+			</fieldset>
+			
+			<ol>
+				<li>어쩌구</li>
+				<li>저쩌구</li>
+				<li>웅앵웅</li>
+			</ol>
+			
+			<div id="items">
+				<div>방가방가</div>
+				<div>하이루</div>
+			</div>
+	</div>
+	<script>
+		$("#filter>ol>li:first").css("color", "#f00"); // 첫번째 요소 선택
+		$("#filter>ol>li:odd").css("font-weight", "bolder"); // 홀수에 해당하는 요소 선택
+		$("#items>div:odd").css("background-color", "#00f");
+		$("#items>div:even").css("background-color", "#0f0"); // 짝수에 해당하는 요소 선택
+		// odd / even 사용 시 주의사항: index는 0부터 시작한다.
+	</script>
+</body>
+```
