@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<head>
+    <title>회원가입</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" 
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" 
+    crossorigin="anonymous"></script>
+<body>
+    <fieldset>
+        <legend>회원가입</legend>
+        <form action="result.html" method="POST">
+        <div>
+            <label for="input-id">아이디</label>
+            <input type="text" id="input-id" class="input-text" required/>
+        </div>
+        <div>
+            <label for="input-password">패스워드</label>
+            <input type="password" id="input-password" class="password" required/>
+            <span id="password-success" style="display: none; color:green; font-weight: bold;">패스워드가 일치합니다.</span>
+            <span id="password-failed" style="display: none; color: red; font-weight: bold;">패스워드가 일치하지 않습니다.</span>
+        </div>
+        <div>
+            <label for="check-input-password">패스워드확인</label>
+            <input type="password" id="check-input-password" class="password" required/>
+        </div>
+        <div>
+            <label for="input-name">이름</label>
+            <input type="text" id="input-name" class="input-text" required/>
+        </div>
+        <div>
+            <label for="check-sex" id="check-sex">성별</label>
+            <label><input type="radio" value="남" class="input-radio" name="check-sex"/>남</label>
+            <label><input type="radio" value="여" class="input-radio" name="check-sex"/>여</label>
+        </div>
+        <div>
+            <label for="input-email">이메일</label>
+            <input type="email" id="input-email" class="input-text" required/>
+        </div>
+        <div>
+                <input type="submit" id="signin" value="회원가입"/>
+                <input type="button" id="reset" value="취소"/>
+        </div>       
+    </form>
+    </fieldset>
+    
+</body>
+<script>
+$("#reset").on("click", function(){
+
+    var textElement = document.getElementsByClassName("input-text");
+    for(var i=0; i<textElement.length; i++) {
+        textElement[i].value = "";
+    }
+
+    var radioElement = document.getElementsByClassName("input-radio");
+    for(var i=0; i<radioElement.length; i++) {
+        radioElement[i].checked = false;
+    }
+
+    var passwordElement = document.getElementsByClassName("password");
+    for(var i=0; i<password.length; i++) {
+        passwordElement[i].value = "";
+    }
+})
+$("#input-id").blur(function(){ 
+    var idCheck = /^[A-Z]+[a-z0-9]{4}/g;
+    var id = document.getElementById("input-id")
+    if(!idCheck.test($("#input-id").val())) {
+        alert("5글자 이상, 첫 글자는 대문자이고 영문자, 숫자만 가능");
+        id.value = "";
+        return;
+    }
+}) 
+
+$("#check-input-password").blur(function(){
+    var password = $("#input-password").val();
+    var checkedPassword = $("#check-input-password").val();
+    var inputCheckPassword = document.getElementById("check-input-password");
+
+
+    if(password == checkedPassword && password!="" && checkedPassword!="") {
+        $("#password-success").css("display", "inline-block");
+        $("#password-failed").css("display", "none");
+    } else if (password != checkedPassword && password!="" && checkedPassword!=""){
+        $("#password-success").css("display", "none");
+        $("#password-failed").css("display", "inline-block");
+    }
+
+    if(password == "" && checkedPassword) {
+        alert("패스워드를 입력하세요.");
+        inputCheckPassword.value = "";
+        $("#input-password").focus();
+    }
+})
+
+$("#signin").on("click", function(){
+    if($("input[name=check-sex]:checked").val() == false) {
+        alert("성별을 선택하세요.");
+        $("#signin").attr("disabled", true);   
+    }
+
+})
+
+
+</script>
+</head>
