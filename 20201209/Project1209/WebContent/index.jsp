@@ -12,7 +12,7 @@
 	<%
 	
 	// inc
-		String inc = "intro.jsp";
+	String inc = "intro.jsp";
 	if (request.getParameter("inc") != null) {
 		inc = request.getParameter("inc");
 
